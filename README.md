@@ -1,6 +1,6 @@
 iMorpheus
 =====================================
-https://imorpheus.io
+http://imorpheus.io
 
 What is iMorpheus?
 ----------------
