@@ -19,5 +19,15 @@ License
 iMopheus will be released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
-Development Process
+Supported Operating Systems
 -------------------
+1. Ubuntu 14.04, 16.04
+
+Resources
+-------------------
+1. [imorpheus.io Website](http://imorpheus.io)
+2. [White Paper](http://imorpheus.io/whitepaper/whitepaper.pdf)
+3. [RoadMap](https://github.com/iMorpheusIO/Docs/blob/master/RoadMap.md)
+
+## Getting Started
+#### The project is on the way.
