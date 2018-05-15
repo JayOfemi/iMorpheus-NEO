@@ -9,14 +9,16 @@ Code Structure
 
 ## 2. primitives
 
-## 3. crypto
+## 3. primitives
 
-## 4. consensus
+## 4. crypto
 
-## 5. script
+## 5. consensus
 
-## 6. rpc
+## 6. script
 
-## 7. wallet
+## 7. rpc
 
-## 8. test
+## 8. wallet
+
+## 9. test
