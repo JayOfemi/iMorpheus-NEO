@@ -222,7 +222,7 @@ var privKeysDictionary = [dictionaryWordsCnt]string{
 	"satisfy", "saturday", "sauce", "saucer", "sausage", "savage", "save", "saw", "scholar",
 }
 
-// Generates a 16bits checksum for input
+// Generates a 8bits checksum for input
 func checksum8(payload []byte) []byte {
 	firstSHA := sha256.Sum256(payload)
 	secondSHA := sha256.Sum256(firstSHA[:])
