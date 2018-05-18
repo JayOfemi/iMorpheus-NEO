@@ -15,22 +15,22 @@ import (
 const version = byte(0x00)
 const addressChecksumLen = 4
 
-// Wallet stores private and public keys
-type Wallet struct {
+// Account stores private and public keys
+type Account struct {
 	PrivateKey ecdsa.PrivateKey
 	PublicKey  []byte
 }
 
-// NewWallet creates and returns a Wallet
-func NewWallet() *Wallet {
+// NewAccount creates and returns a Account
+func NewAccount() *Account {
 	private, public := newKeyPair()
-	wallet := Wallet{private, public}
+	account := Account{private, public}
 
-	return &wallet
+	return &account
 }
 
-// GetAddress returns wallet address
-func (w Wallet) GetAddress() []byte {
+// GetAddress returns account address
+func (w Account) GetAddress() []byte {
 	pubKeyHash := HashPubKey(w.PublicKey)
 
 	versionedPayload := append([]byte{version}, pubKeyHash...)
@@ -89,13 +89,13 @@ func newKeyPair() (ecdsa.PrivateKey, []byte) {
 	fmt.Println("The private key is:")
 	fmt.Printf("%s\n\n", private.D.String())
 
-	words := PrivKey2Words(private.D)
-	fmt.Println("The private key words is:")
-	fmt.Println(words)
-	fmt.Printf("\n")
-	k := Words2PrivKey(words)
-	fmt.Println("The private key is:")
-	fmt.Printf("%v\n\n", k)
+	//words := PrivKey2Words(private.D)
+	//fmt.Println("The private key words is:")
+	//fmt.Println(words)
+	//fmt.Printf("\n")
+	//k := Words2PrivKey(words)
+	//fmt.Println("The private key is:")
+	//fmt.Printf("%v\n\n", k)
 	///end test------------------------------------------------------------------------------------
 
 	return *private, pubKey
