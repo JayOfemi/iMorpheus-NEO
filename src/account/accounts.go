@@ -10,7 +10,7 @@ import (
 	"os"
 )
 
-const accountFile = "account.dat"
+const accountFile = "accounts.dat"
 
 // Accounts stores a collection of accounts
 type Accounts struct {

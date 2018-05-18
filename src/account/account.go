@@ -89,13 +89,13 @@ func newKeyPair() (ecdsa.PrivateKey, []byte) {
 	fmt.Println("The private key is:")
 	fmt.Printf("%s\n\n", private.D.String())
 
-	//words := PrivKey2Words(private.D)
-	//fmt.Println("The private key words is:")
-	//fmt.Println(words)
-	//fmt.Printf("\n")
-	//k := Words2PrivKey(words)
-	//fmt.Println("The private key is:")
-	//fmt.Printf("%v\n\n", k)
+	words := PrivKey2Words(private.D)
+	fmt.Println("The private key words is:")
+	fmt.Println(words)
+	fmt.Printf("\n")
+	k := Words2PrivKey(words)
+	fmt.Println("The private key is:")
+	fmt.Printf("%v\n\n", k)
 	///end test------------------------------------------------------------------------------------
 
 	return *private, pubKey
