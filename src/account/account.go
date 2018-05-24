@@ -1,4 +1,4 @@
-package main
+package account
 
 import (
 	"bytes"
@@ -9,7 +9,6 @@ import (
 	"log"
 
 	"golang.org/x/crypto/ripemd160"
-	"fmt"
 )
 
 const version = byte(0x00)
@@ -82,21 +81,6 @@ func newKeyPair() (ecdsa.PrivateKey, []byte) {
 		log.Panic(err)
 	}
 	pubKey := append(private.PublicKey.X.Bytes(), private.PublicKey.Y.Bytes()...)
-
-	///test---------------------------------------------------------------------------------------
-	fmt.Println("The public key is:")
-	fmt.Printf("(%d, %d)\n\n", private.PublicKey.X, private.PublicKey.Y)
-	fmt.Println("The private key is:")
-	fmt.Printf("%s\n\n", private.D.String())
-
-	words := PrivKey2Words(private.D)
-	fmt.Println("The private key words is:")
-	fmt.Println(words)
-	fmt.Printf("\n")
-	k := Words2PrivKey(words)
-	fmt.Println("The private key is:")
-	fmt.Printf("%v\n\n", k)
-	///end test------------------------------------------------------------------------------------
 
 	return *private, pubKey
 }
