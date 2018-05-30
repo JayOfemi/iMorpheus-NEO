@@ -1,4 +1,4 @@
-package main
+package account
 
 import (
 	"crypto/sha256"
@@ -8,7 +8,7 @@ import (
 const addressChecksum8bitsLen = 1 //8*addressChecksum8bitsLen bits checksum
 const wordsCount = 24
 const wordPerBit = 11
-const dictionaryWordsCnt = 1 << wordPerBit - 1
+const dictionaryWordsCnt = 1 << wordPerBit
 
 var privKeysDictionary = [dictionaryWordsCnt]string{
 	"ability", "able", "about", "above", "abroad", "absence", "absent", "accent", "accept", "accident",
@@ -219,10 +219,10 @@ var privKeysDictionary = [dictionaryWordsCnt]string{
 	"ruler", "run", "rung", "runner", "running", "rush", "russia", "russian", "sad", "sadness",
 	"safe", "safety", "sailing", "sailor", "salad", "salary", "sale", "salesgirl", "salesman", "saleswoman",
 	"salt", "salty", "salute", "same", "sand", "sandwich", "sang", "sank", "sat", "satisfaction",
-	"satisfy", "saturday", "sauce", "saucer", "sausage", "savage", "save", "saw", "scholar",
+	"satisfy", "saturday", "sauce", "saucer", "sausage", "savage", "save", "saw", "scholar", "zoo",
 }
 
-// Generates a 8bits checksum for input
+// Generates a 16bits checksum for input
 func checksum8(payload []byte) []byte {
 	firstSHA := sha256.Sum256(payload)
 	secondSHA := sha256.Sum256(firstSHA[:])
@@ -253,7 +253,7 @@ func encode2WordValue(code []byte) [wordsCount]int64 {
 	for i := 0; i < wordsCount; i++ {
 		valSrc := big.NewInt(0).SetBytes(code)
 		valTemp := valSrc.Rsh(valSrc, wordPerBit * uint(i))
-		valAnd:= big.NewInt(dictionaryWordsCnt)
+		valAnd:= big.NewInt(dictionaryWordsCnt-1)
 		val := valTemp.And(valTemp, valAnd)
 		wordValue[i] = val.Int64()
 	}
@@ -276,7 +276,7 @@ func decode2Code(wordValue [wordsCount]int64) []byte {
 	return code
 }
 
-//Encode private key to keywords
+//Encode private key to mnemonics
 func PrivKey2Words(privKey *big.Int) []string {
 	checksum := checksum8(privKey.Bytes())
 	code := append(checksum, privKey.Bytes()...)
@@ -291,7 +291,7 @@ func PrivKey2Words(privKey *big.Int) []string {
 	return words
 }
 
-//Decode keywords to private key
+//Decode mnemonics to private key
 func Words2PrivKey(words []string) *big.Int {
 	wordsDictionary := make(map[string]int64, dictionaryWordsCnt)
 	for i := int64(0); i < dictionaryWordsCnt; i++ {
