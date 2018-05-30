@@ -1,4 +1,4 @@
-iMorpheus
+iMorpheus-NEO
 =====================================
 http://imorpheus.io
 
@@ -13,8 +13,12 @@ Based on our credit score, accounts from different blockchains, and human users 
 For more information, you can read the
 [original whitepaper](http://imorpheus.io/whitepaper/whitepaper.pdf).
 
+What is NEO?
+---------------
+NEO is the testnet of iMorpheus. It's aimed at creating an universal ledger account, which is an anonymous identity created by grouping multiple addresses from different ledgers.
+
 License
--------
+---------------
 
 iMopheus will be released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
