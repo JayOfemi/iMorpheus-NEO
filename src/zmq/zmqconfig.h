@@ -10,7 +10,7 @@
 #define IMORPHEUS_ZMQ_ZMQCONFIG_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/imorpheus-config.h>
 #endif
 
 #include <stdarg.h>
