@@ -1,5 +1,9 @@
 iMorpheus-NEO
 =====================================
+Introduction
+----------------
+NEO is referenced and developed on NMC-namecoin && NXT-nextcoin. A pure POS protocol based on NXT is implemented on NMC.
+
 Code Structure
 ----------------
 
